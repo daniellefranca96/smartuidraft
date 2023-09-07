@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SmartUIDraft</title>
+	<link href="https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+<div id="container">
+    <div id="headerContainer">
+		<div>
+			<img src="{{ url_for('static', filename='img/loading.gif') }}" alt="Loading" id="loading" hidden="true">
+
+		</div>
+		<h1>SmartUIDraft</h1>
+	</div>
+    <div id="chatbox">
+        <div id="messages">
+        </div>
+        <div id="chatInput">
+            <textarea id="userInput" placeholder="Describe your UI..."></textarea>
+            <button id="sendButton">Send</button>
+        </div>
+    </div>
+    <iframe  id="display"></iframe >
+	<button id="downloadButton" disabled="true">Download</button>
+</div>
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

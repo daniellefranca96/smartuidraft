@@ -1,0 +1,105 @@
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        #container {
+            width: 90%;
+            margin: 0.5% auto;
+        }
+		
+		#headerContainer {
+			display: flex;
+			align-items: center; /* Centers items vertically in the container */
+			justify-content: center; /* Centers the content horizontally */
+			text-align: left; /* Aligns the text to the left */
+		}
+
+		#loading {
+			width: 50px;  /* Example width */
+			height: 50px; /* Example height */
+			background-color: #ccc; /* Placeholder color */
+			margin-right: 20px; /* Spacing between the image and the title */
+		}
+
+        #chatbox, #display {
+            width: 100%;
+            padding: 1%;
+            margin-bottom: 2%;
+            position: relative;
+            overflow-x: hidden; /* Remove horizontal scroll */
+        }
+
+        #chatbox {
+            height: 40vh; /* Fixed height for chatbox */
+            overflow-y: auto; /* Scrollbar will appear when content exceeds height */
+            border: 1px solid black;
+        }
+
+        iframe#display {
+            width: 100%;
+			border: 1px solid black;
+			overflow: visible; /* Set overflow to visible */
+			display:block;
+        }
+
+        h1 {
+			font-family: 'Roboto Slab', serif; /* Use the Roboto Slab font */
+			text-align: center;
+			margin-bottom: 2%;
+			letter-spacing: 1.5px;  /* Increase spacing between letters */
+			padding: 10px 0;        /* Add padding to top and bottom */
+			color: #4a4a4a;         /* Dark gray color */
+			text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);  /* Subtle shadow for depth */
+			border-radius: 5px;     /* Slightly rounded corners */
+		}
+
+        #chatInput {
+            position: absolute;
+			bottom: 10px; /* Added space at the bottom */
+			left: 10px;  /* Added space on the left */
+			right: 10px; /* Added space on the right */
+			width: calc(100% - 20px); /* Adjusted width to account for the added space */
+			background-color: #f4f4f4;
+			padding: 5px;
+			box-sizing: border-box;
+			display: flex;
+        }
+
+        #userInput {
+            flex-grow: 1;
+            margin-right: 5px;
+            padding: 5px;
+            resize: vertical; /* Allow vertical resizing */
+            max-height: 150px; /* Limit the maximum height */
+        }
+
+        button {
+            padding: 5px 15px;
+            cursor: not allowed;
+        }
+
+        .message {
+            margin-bottom: 10px;
+        }
+		#downloadButton {
+			display: block;
+			margin: 20px auto; /* Centers the button */
+			background-color: green;
+			color: white;
+			padding: 10px 20px;
+			text-align: center;
+			border: none;
+			cursor: pointer;
+			transition: background-color 0.3s;
+		}
+
+		#downloadButton:hover {
+			background-color: darkgreen;
+		}
+		
+		#downloadButton[disabled] {
+			background-color: #ccc; /* Grayed out background */
+			cursor: not-allowed;    /* Indicator that it's not clickable */
+		}
