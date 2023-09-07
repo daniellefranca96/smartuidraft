@@ -11,7 +11,7 @@ import os
 load_dotenv()
 os.environ['OPENAI_API_KEY'] = os.getenv(key="OPENAI_API_KEY")
 
-llm = ChatOpenAI(model='gpt-3.5-turbo-0613')
+llm = ChatOpenAI(model=os.getenv("MODEL", "gpt-3.5-turbo-0613"))
 
 master_memory = ConversationBufferWindowMemory(k=2, memory_key="history")
 
@@ -25,10 +25,10 @@ chain = LLMChain(llm=llm, prompt=chat_prompt_template, memory=master_memory)
 def generate_code(request):
     code = chain.run(request)
     code = extract_html(code)
-    return {'code': code, 'memory': master_memory.load_memory_variables('history')}
+    return code
     
 def get_last_code(memory: dict):
-    return extract_html(memory['history'])
+    return memory
 
 def extract_html(content):
     pattern = re.compile(r'<html.*?>(.*?)</html>', re.DOTALL | re.IGNORECASE)

@@ -13,8 +13,8 @@ def generate():
     memory = None
     user_req = request.get_json().get('request')
     result = generate_code(user_req)
-    session['memory'] = result['memory']
-    return jsonify({'data':result['code']})
+    session['memory'] = result
+    return jsonify({'data':result})
     
 @app.route('/download')
 def download():
