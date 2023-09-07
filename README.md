@@ -3,6 +3,11 @@
 
 SmartUIDraft is an intuitive text-to-HTML application that harnesses the power of GPT-3 to transform user descriptions into tangible web interfaces. Users simply describe the interface they envision, and SmartUIDraft generates the corresponding HTML for it. Additionally, it offers a download option for users to easily obtain the generated HTML code.
 
+## Demo
+https://github.com/daniellefranca96/smartuidraft/assets/134293046/e44402c4-d29b-423c-8681-a042f6bac58d
+
+
+
 ## Features
 
 - **GPT-3 Powered**: The application uses the capabilities of GPT-3 to understand and convert user descriptions into accurate HTML components.
