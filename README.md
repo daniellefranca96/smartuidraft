@@ -53,6 +53,12 @@ https://github.com/daniellefranca96/smartuidraft/assets/134293046/e44402c4-d29b-
 
    Once running, access the application at `http://localhost:5000` or the port specified in the `.env` file.
 
+## Improvements
+
+- Upload a HTML code to edit.
+- Search on the internet.
+- Indicate link of page as reference for generation.
+
 ## Contributing
 
 Whether you're looking to fix bugs, add new features, or improve documentation, all contributions are welcome! Fork the repository and submit your pull requests.
