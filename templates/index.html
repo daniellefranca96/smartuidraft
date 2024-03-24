@@ -10,22 +10,26 @@
 <body>
 <div id="container">
     <div id="headerContainer">
-		<div>
-			<img src="{{ url_for('static', filename='img/loading.gif') }}" alt="Loading" id="loading" hidden="true">
-
-		</div>
-		<h1>SmartUIDraft</h1>
-	</div>
+        <div>
+            <img src="/static/img/loading.gif" alt="Loading" id="loading" hidden="true">
+        </div>
+        <h1>SmartUIDraft</h1>
+    </div>
+    <div id="uploadContainer">
+        <input type="file" id="template" class="form-control-file" />
+        <div id="templateText" class="form-text text-muted">In the field above you can upload a html/css/javascript file or a txt with instructions to serve as base template</div>
+    </div>
     <div id="chatbox">
         <div id="messages">
         </div>
         <div id="chatInput">
             <textarea id="userInput" placeholder="Describe your UI..."></textarea>
             <button id="sendButton">Send</button>
+			<button id="undoButton" disabled>Undo</button>
         </div>
     </div>
-    <iframe  id="display"></iframe >
-	<button id="downloadButton" disabled="true">Download</button>
+    <iframe id="display"></iframe>
+    <button id="downloadButton" disabled="true">Download</button>
 </div>
 <script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>

@@ -8,24 +8,33 @@
             width: 90%;
             margin: 0.5% auto;
         }
-		
-		#headerContainer {
-			display: flex;
-			align-items: center; /* Centers items vertically in the container */
-			justify-content: center; /* Centers the content horizontally */
-			text-align: left; /* Aligns the text to the left */
-		}
 
-		#loading {
-			width: 50px;  /* Example width */
-			height: 50px; /* Example height */
-			background-color: #ccc; /* Placeholder color */
-			margin-right: 20px; /* Spacing between the image and the title */
-		}
+        #undoButtonContainer {
+            position: absolute; /* Position the container absolutely */
+            top: 10px; /* Position it 10 pixels from the top */
+            left: 10px; /* Position it 10 pixels from the left */
+            z-index: 1; /* Ensure the button is on top */
+        }
+
+        #headerContainer {
+            display: flex;
+            align-items: center; /* Centers items vertically in the container */
+            justify-content: center; /* Centers the content horizontally */
+            text-align: left; /* Aligns the text to the left */
+            margin-top: 40px; /* Add margin to the top to make space for the undo button */
+        }
+
+        #loading {
+            width: 50px; /* Example width */
+            height: 50px; /* Example height */
+            background-color: #ccc; /* Placeholder color */
+            margin-right: 20px; /* Spacing between the image and the title */
+        }
 
         #chatbox, #display {
             width: 100%;
             padding: 1%;
+			border: 1px solid black;
             margin-bottom: 2%;
             position: relative;
             overflow-x: hidden; /* Remove horizontal scroll */
@@ -34,37 +43,59 @@
         #chatbox {
             height: 40vh; /* Fixed height for chatbox */
             overflow-y: auto; /* Scrollbar will appear when content exceeds height */
-            border: 1px solid black;
         }
 
         iframe#display {
-            width: 100%;
-			border: 1px solid black;
 			overflow: visible; /* Set overflow to visible */
 			display:block;
         }
 
         h1 {
-			font-family: 'Roboto Slab', serif; /* Use the Roboto Slab font */
-			text-align: center;
-			margin-bottom: 2%;
-			letter-spacing: 1.5px;  /* Increase spacing between letters */
-			padding: 10px 0;        /* Add padding to top and bottom */
-			color: #4a4a4a;         /* Dark gray color */
-			text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);  /* Subtle shadow for depth */
-			border-radius: 5px;     /* Slightly rounded corners */
-		}
+            font-family: 'Roboto Slab', serif; /* Use the Roboto Slab font */
+            text-align: center;
+            margin-bottom: 2%;
+            letter-spacing: 1.5px; /* Increase spacing between letters */
+            padding: 10px 0; /* Add padding to top and bottom */
+            color: #4a4a4a; /* Dark gray color */
+            text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+            border-radius: 5px; /* Slightly rounded corners */
+        }
+
+        #uploadContainer {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 20px;
+        }
+
+        #template {
+            flex-grow: 1;
+            padding: 8px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-right: 10px;
+        }
+
+        #templateText {
+            font-size: 14px;
+            color: #777;
+            margin-top: 5px; /* Added margin-top */
+            margin-bottom: 20px; /* Add space after the text */
+        }
 
         #chatInput {
-            position: absolute;
-			bottom: 10px; /* Added space at the bottom */
-			left: 10px;  /* Added space on the left */
-			right: 10px; /* Added space on the right */
-			width: calc(100% - 20px); /* Adjusted width to account for the added space */
-			background-color: #f4f4f4;
-			padding: 5px;
-			box-sizing: border-box;
-			display: flex;
+			position: absolute;
+            bottom: 10px;
+            left: 10px;
+            right: 10px;
+            width: calc(100% - 20px);
+            background-color: #f4f4f4;
+            padding: 5px;
+            box-sizing: border-box;
+            display: flex;
+            align-items: center; /* Add this to center align the buttons */
+			background-color: white;
         }
 
         #userInput {
@@ -74,32 +105,35 @@
             resize: vertical; /* Allow vertical resizing */
             max-height: 150px; /* Limit the maximum height */
         }
-
-        button {
-            padding: 5px 15px;
-            cursor: not allowed;
-        }
+		
+		#sendButton, #undoButton {
+			padding: 10px 20px; /* Adjust padding as desired */
+			height: 40px; /* Set a fixed height */
+			width: 100px; /* Set a fixed width */
+			margin-left: 10px; /* Add some spacing between the buttons */
+		}
 
         .message {
             margin-bottom: 10px;
         }
-		#downloadButton {
-			display: block;
-			margin: 20px auto; /* Centers the button */
-			background-color: green;
-			color: white;
-			padding: 10px 20px;
-			text-align: center;
-			border: none;
-			cursor: pointer;
-			transition: background-color 0.3s;
-		}
 
-		#downloadButton:hover {
-			background-color: darkgreen;
-		}
-		
-		#downloadButton[disabled] {
-			background-color: #ccc; /* Grayed out background */
-			cursor: not-allowed;    /* Indicator that it's not clickable */
-		}
+        #downloadButton {
+            display: block;
+            margin: 20px auto; /* Centers the button */
+            background-color: green;
+            color: white;
+            padding: 10px 20px;
+            text-align: center;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        #downloadButton:hover {
+            background-color: darkgreen;
+        }
+
+        #downloadButton[disabled] {
+            background-color: #ccc; /* Grayed out background */
+            cursor: not-allowed; /* Indicator that it's not clickable */
+        }

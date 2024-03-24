@@ -10,9 +10,15 @@ def home():
     
 @app.route('/generate', methods=['POST'])
 def generate():
-    memory = None
-    user_req = request.get_json().get('request')
-    result = generate_code(user_req)
+    memory = None  if "memory" not in session else session.get('memory')
+    user_req = request.form.get('request')
+    file =  request.files['file'] if 'file' in request.files else None
+    template = ""
+    if file:
+         content_bytes = file.read()
+         template = content_bytes.decode('utf-8')  
+    print(template)
+    result = generate_code(user_req, template)
     session['memory'] = result
     return jsonify({'data':result})
     
