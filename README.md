@@ -1,64 +1,99 @@
+# SmartUIDraft: AI-Powered Web UI Design
 
-# SmartUIDraft
+## Introduction
 
-SmartUIDraft is an intuitive text-to-HTML application that harnesses the power of GPT-3 to transform user descriptions into tangible web interfaces. Users simply describe the interface they envision, and SmartUIDraft generates the corresponding HTML for it. Additionally, it offers a download option for users to easily obtain the generated HTML code.
+SmartUIDraft is an innovative web application that leverages the power of artificial intelligence (AI) to streamline the web UI design process. Users can describe their desired user interface in natural language, and SmartUIDraft will automatically generate the corresponding HTML, CSS, and JavaScript code. This tool empowers designers and developers of all skill levels to create professional-looking UIs with ease and efficiency.
 
-## Demo
+## Key Features
+
+- **AI-Driven Code Generation:** SmartUIDraft utilizes advanced AI models to understand user descriptions and translate them into functional UI code.
+- **Natural Language Input:** Users can interact with the application using plain English, eliminating the need for technical expertise.
+- **Interactive Design Process:** The application provides an interactive environment where users can refine their UI designs through iterative feedback.
+- **Code Download:** Generated code can be easily downloaded for further customization and integration into existing projects.
+- **Template Support:** Users can upload HTML/CSS/JavaScript files or text instructions as base templates to guide the AI's code generation.
+- **Undo Functionality:** The application allows users to undo previous actions, providing flexibility and control over the design process.
+
+## Demo (first version only, not updated with newest features)
 https://github.com/daniellefranca96/smartuidraft/assets/134293046/e44402c4-d29b-423c-8681-a042f6bac58d
-
-
-
-## Features
-
-- **GPT-3 Powered**: The application uses the capabilities of GPT-3 to understand and convert user descriptions into accurate HTML components.
-- **Text-to-HTML Conversion**: Describe your desired interface and receive the HTML code in real-time.
-- **User-Friendly Interface**: The application is designed with a straightforward UI, ensuring accessibility for both tech-savvy users and beginners.
-- **Download Option**: Conveniently download the generated HTML directly from the application.
 
 ## Structure
 
 - `app.py`: Main application entry point.
 - `generator.py`: Contains the logic for converting user input into HTML.
+- `prompt.py`: Contains prompts used for the LLM models.
 - `static/`: Houses static assets like stylesheets, scripts, and images.
 - `templates/`: Contains the HTML templates used to render the application's web pages.
 
-## Setup
+## Installation and Setup
 
-1. **Clone the Repository**
+```bash
+git clone [https://github.com/your-username/SmartUIDraft.git](https://github.com/your-username/SmartUIDraft.git)
+pip install -r requirements.txt
+# Configure environment variables in a .env file 
+python app.py
+```
 
-   If you have git installed:
-   ```
-   git clone <repository-url>
-   cd smartuidraft
-   ```
+> [!NOTE]
+> There is an image docker avaliable as an alternate way to run it.
 
-2. **Install Dependencies**
+## Environment Variables
 
-   It's recommended to use a virtual environment:
-   ```
-   python3 -m venv venv
-   source venv/bin/activate
-   pip install -r requirements.txt
-   ```
+The following environment variables can be used to configure SmartUIDraft. You'll need to set these up in a `.env` file in your project's root directory.
 
-3. **Environment Variables**
+- **LLM_PROVIDER:** (Required) Specifies the AI model provider to use. Options:
+    * `openai`: Uses OpenAI models.
+    * `anthropic`: Uses Anthropic models.
+    * `google`: Uses Google AI models.
+    * `hugginfaces`: Uses Hugging Face models (supports Hugging Face Inference API only).
+    * `bedrock`: Uses Bedrock models.
 
-   Ensure the `.env` file is configured with the necessary environment variables.
+- **OPENAI_API_KEY:**  Your OpenAI API key.
 
-4. **Run the Application**
+- **GOOGLE_API_KEY:**  Your Google API key.
 
-   ```
-   python app.py
-   ```
+- **ANTHROPIC_API_KEY:**  Your Anthropic API key.
 
-   Once running, access the application at `http://localhost:5000` or the port specified in the `.env` file.
+- **HUGGINGFACEHUB_API_TOKEN:** Your Hugging Face API token.
 
-## Improvements
+- **AWS_KEY:** Your AWS access key.
 
-- Upload a HTML code to edit.
-- Search on the internet.
-- Indicate link of page as reference for generation.
+- **AWS_SECRET:** Your AWS secret key.
 
+- **ANTHROPIC_MODEL:** The model to use for anthropic, default is set to Claude 3 Haiku.
+
+- **OPENAI_MODEL:** The model to use for OpenAI, default is set to GPT 3.5 Turbo.
+
+- **GOOGLE_MODEL:** The model to use for Google, default is set to Gemini Pro 1.0.
+
+- **BEDROCK_MODEL:** The model to use for Bedrock, default is set to Claude 3 Haiku.
+
+- **HUGGINGFACEHUB_MODEL_MODEL:** The model to use for HugginFaces, default is set to Mistral 8x7b.
+
+> [!NOTE]
+> Currently, Cohere models are not supported on bedrock integration.
+
+## Usage
+
+1. **Access SmartUIDraft:** Open the application in your web browser at http://localhost:5000/.
+
+2. **(Optional) Provide a Template:**
+   * Upload an existing HTML/CSS/JavaScript file as a starting point.
+   * Or, provide text instructions to guide the AI's design generation.
+
+3. **Describe Your UI:** In the chat input field, describe your desired user interface using natural language. Be as specific as possible. 
+
+4. **Generate Code:** Click the "Send" button. SmartUIDraft will process your description and generate the corresponding UI code.
+
+5. **Review and Refine:** The generated UI will be displayed in an output area.
+   * If needed, use the "Undo" button to revert previous changes.
+   * Continue to refine your description and regenerate the code until you're satisfied with the design.
+
+6. **Download Your Code:** Click the "Download" button to save the generated HTML, CSS, and JavaScript files for further use in your project.
+
+**Example:**
+
+"Create a login form with fields for username and password. Include a blue 'Submit' button and center the form on the page."
+ 
 ## Contributing
 
 Whether you're looking to fix bugs, add new features, or improve documentation, all contributions are welcome! Fork the repository and submit your pull requests.
